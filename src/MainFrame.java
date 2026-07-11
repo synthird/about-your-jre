@@ -47,6 +47,8 @@ public class MainFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == exitButton) {
 			System.exit(0);
+		} else if (e.getSource() == copyButton) {
+			System.out.println("Copy JRE info");
 		}
 	}
 }
