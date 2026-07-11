@@ -13,13 +13,13 @@ public class MainFrame extends JFrame implements ActionListener {
 	JButton copyButton,
 			exitButton;
 
-	public MainFrame(String version, String versionDate, String vendor, String vendorWebsite, String deviceOS, String bugReportLink) {
-		System.out.println(version);
-		System.out.println(versionDate);
-		System.out.println(vendor);
-		System.out.println(vendorWebsite);
-		System.out.println(deviceOS);
-		System.out.println(bugReportLink);
+	public MainFrame(JREInfo jreInfo) {
+		System.out.println(jreInfo.version);
+		System.out.println(jreInfo.versionDate);
+		System.out.println(jreInfo.vendor);
+		System.out.println(jreInfo.vendorSite);
+		System.out.println(jreInfo.deviceOS);
+		System.out.println(jreInfo.bugReportLink);
 
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
