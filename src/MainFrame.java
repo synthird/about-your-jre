@@ -21,12 +21,13 @@ public class MainFrame extends JFrame implements ActionListener {
 		System.out.println(jreInfo.deviceOS);
 		System.out.println(jreInfo.bugReportLink);
 
+		// Buttons
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-
 		copyButton = setupButton("Copy JRE info");
 		exitButton = setupButton("Exit");
 		this.add(buttonPanel, BorderLayout.SOUTH);
 
+		// Set up JFrame window
 		this.setSize(333, 290);
 		this.setTitle("About your JRE");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
