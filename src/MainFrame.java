@@ -32,13 +32,6 @@ public class MainFrame extends JFrame implements MouseListener {
 	Desktop desktop = Desktop.getDesktop();
 
 	public MainFrame(JREInfo jreInfo) {
-		System.out.println(jreInfo.version);
-		System.out.println(jreInfo.versionDate);
-		System.out.println(jreInfo.vendor);
-		System.out.println(jreInfo.vendorSite);
-		System.out.println(jreInfo.deviceOS);
-		System.out.println(jreInfo.bugReportLink);
-
 		// Extract links
 		try {
 			vendorUri = new URI(jreInfo.vendorSite);
