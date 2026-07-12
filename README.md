@@ -20,6 +20,26 @@ You can download the latest version in the [releases page](https://github.com/sy
 
 2. Once you installed a JDK, download the jar file called ```about-your-jre.jar```.
 
+## Running the jar file
+
+### Showing JRE info by GUI
+
+1. Go into the directory where you saved your jar file.
+2. Run the jar file by double clicking it, or open the terminal in said directory and run:
+
+```bash
+java -jar about-your-jre.jar
+```
+
+### Showing JRE info by CLI
+
+1. Go into the directory where you saved your jar file.
+2. Enter in the terminal:
+
+```bash
+java -jar about-your-jre.jar cli
+```
+
 ## License
 
 This repository contains the GPL version 3 license. You must give credit if you want to use its source code, and open source your project under the same license.
