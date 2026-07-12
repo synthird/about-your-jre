@@ -1,7 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainFrame extends JFrame implements ActionListener {
+public class MainFrame extends JFrame implements MouseListener {
 	JPanel buttonPanel,
 		jreInfoPanel;
 
@@ -65,24 +65,41 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	private JButton setUpButton(String text) {
 		JButton button = new JButton(text);
-		button.addActionListener(this);
+		button.addMouseListener(this);
 		button.setFocusable(false);
 		buttonPanel.add(button);
 		return button;
 	}
 
-	private void setUpJLabel(String property, String value) {
+	private JLabel setUpJLabel(String property, String value) {
 		String text = String.format("%s: %s", property, value);
 		JLabel propertyLabel = new JLabel(text);
 		jreInfoPanel.add(propertyLabel);
-	} 
+		return propertyLabel;
+	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == exitButton) {
 			System.exit(0);
 		} else if (e.getSource() == copyButton) {
 			System.out.println("Copy JRE info");
 		}
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
 	}
 }
