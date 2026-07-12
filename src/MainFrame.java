@@ -40,7 +40,7 @@ public class MainFrame extends JFrame implements MouseListener {
 	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
 	public MainFrame(JREInfo jreInfo) {
-		// Add text to the textToCopy variable
+		// Prepare copying JRE info
 		textToCopy = String.format("Version: %s\nVersion date: %s\nVendor: %s\nDevice operating system: %s",
 				jreInfo.version,
 				jreInfo.versionDate,
