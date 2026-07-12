@@ -23,8 +23,8 @@ public class MainFrame extends JFrame implements ActionListener {
 
 		// Buttons
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		copyButton = setupButton("Copy JRE info");
-		exitButton = setupButton("Exit");
+		copyButton = setUpButton("Copy JRE info");
+		exitButton = setUpButton("Exit");
 		this.add(buttonPanel, BorderLayout.SOUTH);
 
 		// Set up JFrame window
@@ -35,7 +35,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		this.setVisible(true);
 	}
 
-	private JButton setupButton(String text) {
+	private JButton setUpButton(String text) {
 		JButton button = new JButton(text);
 		button.addActionListener(this);
 		button.setFocusable(false);
