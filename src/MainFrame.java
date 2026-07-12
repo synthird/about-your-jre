@@ -3,6 +3,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,7 +14,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	JButton copyButton,
 			exitButton;
-	
+
 	FlowLayout alignLeft = new FlowLayout(FlowLayout.LEFT);
 
 	public MainFrame(JREInfo jreInfo) {
@@ -30,6 +31,29 @@ public class MainFrame extends JFrame implements ActionListener {
 
 		titlePanel.add(titleLabel);
 		this.add(titlePanel, BorderLayout.NORTH);
+
+		// JRE info
+		JPanel alignMainContent = new JPanel(alignLeft),
+				jreInfoPanel = new JPanel(alignLeft);
+	
+		jreInfoPanel.setLayout(new BoxLayout(jreInfoPanel, BoxLayout.Y_AXIS));
+
+		JLabel versionLabel = new JLabel("Version: "),
+				versionDateLabel = new JLabel("Version date: "),
+				vendorLabel = new JLabel("Vendor: "),
+				vendorSiteLabel = new JLabel("Vendor website: "),
+				deviceOSLabel = new JLabel("Device operating system: "),
+				bugReportLinkLabel = new JLabel("Report JRE bugs: ");
+		
+		jreInfoPanel.add(versionLabel);
+		jreInfoPanel.add(versionDateLabel);
+		jreInfoPanel.add(vendorLabel);
+		jreInfoPanel.add(vendorSiteLabel);
+		jreInfoPanel.add(deviceOSLabel);
+		jreInfoPanel.add(bugReportLinkLabel);
+
+		alignMainContent.add(jreInfoPanel);
+		this.add(alignMainContent);
 
 		// Buttons
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
