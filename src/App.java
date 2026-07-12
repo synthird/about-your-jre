@@ -14,8 +14,7 @@ public class App {
 					jreInfo.deviceOS,
 					jreInfo.bugReportLink);
 
-			System.out.println("----- ABOUT YOUR JRE -----");
-			System.out.println(mainCLIContent);
+			System.out.println(String.format("----- ABOUT YOUR JRE -----\n%s", mainCLIContent));
 		}
 	}
 }
