@@ -33,7 +33,7 @@ You can download the latest version in the [releases page](https://github.com/sy
 2. Enter in the terminal:
 
 ```bash
-java -jar about-your-jre.jar cli
+java -jar about-your-jre.jar any-text-you-enter-here
 ```
 
 ## License
