@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame implements ActionListener {
@@ -12,6 +13,8 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	JButton copyButton,
 			exitButton;
+	
+	FlowLayout alignLeft = new FlowLayout(FlowLayout.LEFT);
 
 	public MainFrame(JREInfo jreInfo) {
 		System.out.println(jreInfo.version);
@@ -20,6 +23,13 @@ public class MainFrame extends JFrame implements ActionListener {
 		System.out.println(jreInfo.vendorSite);
 		System.out.println(jreInfo.deviceOS);
 		System.out.println(jreInfo.bugReportLink);
+
+		// JLabel title
+		JPanel titlePanel = new JPanel(alignLeft);
+		JLabel titleLabel = new JLabel("About your JRE");
+
+		titlePanel.add(titleLabel);
+		this.add(titlePanel, BorderLayout.NORTH);
 
 		// Buttons
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
