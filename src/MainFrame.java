@@ -15,6 +15,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame implements MouseListener {
@@ -124,6 +125,7 @@ public class MainFrame extends JFrame implements MouseListener {
 		} else if (e.getSource() == copyButton) {
 			// Copy JRE info
 			clipboard.setContents(copySelection, null);
+			JOptionPane.showMessageDialog(this, "Copied JRE info to clipboard");
 		} else if (e.getSource() == vendorSiteLabel) {
 			// Open vendor website
 			try {
