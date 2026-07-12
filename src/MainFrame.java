@@ -1,7 +1,12 @@
 import java.awt.BorderLayout;
+import java.awt.Cursor;
+import java.awt.Desktop;
 import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -13,10 +18,18 @@ public class MainFrame extends JFrame implements MouseListener {
 	JPanel buttonPanel,
 		jreInfoPanel;
 
+	JLabel vendorSiteLabel,
+		reportBugsLabel;
+
 	JButton copyButton,
 			exitButton;
 
 	FlowLayout alignLeft = new FlowLayout(FlowLayout.LEFT);
+
+	URI vendorUri,
+		bugReportUri;
+	
+	Desktop desktop = Desktop.getDesktop();
 
 	public MainFrame(JREInfo jreInfo) {
 		System.out.println(jreInfo.version);
@@ -25,6 +38,14 @@ public class MainFrame extends JFrame implements MouseListener {
 		System.out.println(jreInfo.vendorSite);
 		System.out.println(jreInfo.deviceOS);
 		System.out.println(jreInfo.bugReportLink);
+
+		// Extract links
+		try {
+			vendorUri = new URI(jreInfo.vendorSite);
+			bugReportUri = new URI(jreInfo.bugReportLink);
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 
 		// JLabel title
 		JPanel titlePanel = new JPanel(alignLeft);
@@ -42,11 +63,19 @@ public class MainFrame extends JFrame implements MouseListener {
 		setUpJLabel("Version", jreInfo.version);
 		setUpJLabel("Version date", jreInfo.versionDate);
 		setUpJLabel("Vendor", jreInfo.vendor);
-		setUpJLabel("Vendor website", jreInfo.vendorSite);
+
+		vendorSiteLabel = setUpJLabel("Vendor website", jreInfo.vendorSite);
+		vendorSiteLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		vendorSiteLabel.addMouseListener(this);
+
 		setUpJLabel("Device operating system", jreInfo.deviceOS);
-		setUpJLabel("Report JRE bugs", jreInfo.bugReportLink);
+
+		reportBugsLabel = setUpJLabel("Report JRE bugs", jreInfo.bugReportLink);
+		reportBugsLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		reportBugsLabel.addMouseListener(this);
 
 		alignMainContent.add(jreInfoPanel);
+
 		this.add(alignMainContent);
 
 		// Buttons
@@ -84,6 +113,20 @@ public class MainFrame extends JFrame implements MouseListener {
 			System.exit(0);
 		} else if (e.getSource() == copyButton) {
 			System.out.println("Copy JRE info");
+		} else if (e.getSource() == vendorSiteLabel) {
+			// Open vendor website
+			try {
+				desktop.browse(vendorUri);
+			} catch (IOException e1) {
+				System.out.println("Unable to open vendor site");
+			}
+		} else if (e.getSource() == reportBugsLabel) {
+			// Open bug report link
+			try {
+				desktop.browse(bugReportUri);
+			} catch (IOException e1) {
+				System.out.println("Unable to open bug report link");
+			}
 		}
 	}
 
