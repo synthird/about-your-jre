@@ -110,7 +110,7 @@ public class MainFrame extends JFrame implements MouseListener {
 	}
 
 	private JLabel setUpLinkLabel(String property, String link) {
-		String linkTag = String.format("<font color=blue>%s</font>", link);
+		String linkTag = String.format("<u><font color=blue>%s</font></u>", link);
 		JLabel linkLabel = setUpJLabel(property, linkTag);
 
 		linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
