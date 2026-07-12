@@ -121,7 +121,7 @@ public class MainFrame extends JFrame implements MouseListener {
 	private void showCannotOpenLinkMessage() {
 		JOptionPane.showMessageDialog(this,
 				"Your device refuses to open this link! :(",
-				"Unable to open!",
+				"Unable to open link!",
 				JOptionPane.ERROR_MESSAGE);
 	}
 
