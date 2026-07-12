@@ -10,7 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame implements ActionListener {
-	JPanel buttonPanel;
+	JPanel buttonPanel,
+		jreInfoPanel;
 
 	JButton copyButton,
 			exitButton;
@@ -33,24 +34,17 @@ public class MainFrame extends JFrame implements ActionListener {
 		this.add(titlePanel, BorderLayout.NORTH);
 
 		// JRE info
-		JPanel alignMainContent = new JPanel(alignLeft),
-				jreInfoPanel = new JPanel(alignLeft);
-	
+		JPanel alignMainContent = new JPanel(alignLeft);
+
+		jreInfoPanel = new JPanel(alignLeft);
 		jreInfoPanel.setLayout(new BoxLayout(jreInfoPanel, BoxLayout.Y_AXIS));
 
-		JLabel versionLabel = new JLabel("Version: "),
-				versionDateLabel = new JLabel("Version date: "),
-				vendorLabel = new JLabel("Vendor: "),
-				vendorSiteLabel = new JLabel("Vendor website: "),
-				deviceOSLabel = new JLabel("Device operating system: "),
-				bugReportLinkLabel = new JLabel("Report JRE bugs: ");
-		
-		jreInfoPanel.add(versionLabel);
-		jreInfoPanel.add(versionDateLabel);
-		jreInfoPanel.add(vendorLabel);
-		jreInfoPanel.add(vendorSiteLabel);
-		jreInfoPanel.add(deviceOSLabel);
-		jreInfoPanel.add(bugReportLinkLabel);
+		setUpJLabel("Version", jreInfo.version);
+		setUpJLabel("Version date", jreInfo.versionDate);
+		setUpJLabel("Vendor", jreInfo.vendorSite);
+		setUpJLabel("Vendor website", jreInfo.vendorSite);
+		setUpJLabel("Device operating system", jreInfo.deviceOS);
+		setUpJLabel("Report JRE bugs", jreInfo.bugReportLink);
 
 		alignMainContent.add(jreInfoPanel);
 		this.add(alignMainContent);
@@ -76,6 +70,12 @@ public class MainFrame extends JFrame implements ActionListener {
 		buttonPanel.add(button);
 		return button;
 	}
+
+	private void setUpJLabel(String property, String value) {
+		String text = String.format("%s: %s", property, value);
+		JLabel propertyLabel = new JLabel(text);
+		jreInfoPanel.add(propertyLabel);
+	} 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
