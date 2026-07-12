@@ -25,11 +25,7 @@ You can download the latest version in the [releases page](https://github.com/sy
 ### Showing JRE info by GUI
 
 1. Go into the directory where you saved your jar file.
-2. Run the jar file by double clicking it, or open the terminal in said directory and run:
-
-```bash
-java -jar about-your-jre.jar
-```
+2. Run the jar file.
 
 ### Showing JRE info by CLI
 
