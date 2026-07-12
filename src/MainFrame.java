@@ -41,7 +41,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 		setUpJLabel("Version", jreInfo.version);
 		setUpJLabel("Version date", jreInfo.versionDate);
-		setUpJLabel("Vendor", jreInfo.vendorSite);
+		setUpJLabel("Vendor", jreInfo.vendor);
 		setUpJLabel("Vendor website", jreInfo.vendorSite);
 		setUpJLabel("Device operating system", jreInfo.deviceOS);
 		setUpJLabel("Report JRE bugs", jreInfo.bugReportLink);
