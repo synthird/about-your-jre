@@ -2,6 +2,9 @@ import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -16,22 +19,35 @@ import javax.swing.JPanel;
 
 public class MainFrame extends JFrame implements MouseListener {
 	JPanel buttonPanel,
-		jreInfoPanel;
+			jreInfoPanel;
 
 	JLabel vendorSiteLabel,
-		reportBugsLabel;
+			reportBugsLabel;
 
 	JButton copyButton,
 			exitButton;
 
 	FlowLayout alignLeft = new FlowLayout(FlowLayout.LEFT);
 
+	String textToCopy;
+	StringSelection copySelection;
+
 	URI vendorUri,
-		bugReportUri;
-	
+			bugReportUri;
+
 	Desktop desktop = Desktop.getDesktop();
+	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
 	public MainFrame(JREInfo jreInfo) {
+		// Add text to the textToCopy variable
+		textToCopy = String.format("Version: %s\nVersion date: %s\nVendor: %s\nDevice operating system: %s",
+				jreInfo.version,
+				jreInfo.versionDate,
+				jreInfo.vendor,
+				jreInfo.deviceOS);
+
+		copySelection = new StringSelection(textToCopy);
+
 		// Extract links
 		try {
 			vendorUri = new URI(jreInfo.vendorSite);
@@ -47,7 +63,7 @@ public class MainFrame extends JFrame implements MouseListener {
 		titlePanel.add(titleLabel);
 		this.add(titlePanel, BorderLayout.NORTH);
 
-		// JRE info
+		// Show JRE info
 		JPanel alignMainContent = new JPanel(alignLeft);
 
 		jreInfoPanel = new JPanel(alignLeft);
@@ -92,7 +108,7 @@ public class MainFrame extends JFrame implements MouseListener {
 		return propertyLabel;
 	}
 
-	private JLabel setUpLinkLabel (String property, String link) {
+	private JLabel setUpLinkLabel(String property, String link) {
 		String linkTag = String.format("<font color=blue>%s</font>", link);
 		JLabel linkLabel = setUpJLabel(property, linkTag);
 
@@ -106,7 +122,8 @@ public class MainFrame extends JFrame implements MouseListener {
 		if (e.getSource() == exitButton) {
 			System.exit(0);
 		} else if (e.getSource() == copyButton) {
-			System.out.println("Copy JRE info");
+			// Copy JRE info
+			clipboard.setContents(copySelection, null);
 		} else if (e.getSource() == vendorSiteLabel) {
 			// Open vendor website
 			try {
