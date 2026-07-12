@@ -24,12 +24,12 @@ You can download the latest version in the [releases page](https://github.com/sy
 
 ### Showing JRE info by GUI
 
-1. Go into the directory where you saved your jar file.
+1. Go into the folder where you saved your jar file.
 2. Run the jar file.
 
 ### Showing JRE info by CLI
 
-1. Go into the directory where you saved your jar file.
+1. Go into the folder where you saved your jar file.
 2. Enter in the terminal:
 
 ```bash
