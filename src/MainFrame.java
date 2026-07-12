@@ -56,19 +56,11 @@ public class MainFrame extends JFrame implements MouseListener {
 		setUpJLabel("Version", jreInfo.version);
 		setUpJLabel("Version date", jreInfo.versionDate);
 		setUpJLabel("Vendor", jreInfo.vendor);
-
-		vendorSiteLabel = setUpJLabel("Vendor website", jreInfo.vendorSite);
-		vendorSiteLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		vendorSiteLabel.addMouseListener(this);
-
+		vendorSiteLabel = setUpLinkLabel("Vendor website", jreInfo.vendorSite);
 		setUpJLabel("Device operating system", jreInfo.deviceOS);
-
-		reportBugsLabel = setUpJLabel("Report JRE bugs", jreInfo.bugReportLink);
-		reportBugsLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		reportBugsLabel.addMouseListener(this);
+		reportBugsLabel = setUpLinkLabel("Report JRE bugs", jreInfo.bugReportLink);
 
 		alignMainContent.add(jreInfoPanel);
-
 		this.add(alignMainContent);
 
 		// Buttons
@@ -94,10 +86,19 @@ public class MainFrame extends JFrame implements MouseListener {
 	}
 
 	private JLabel setUpJLabel(String property, String value) {
-		String text = String.format("%s: %s", property, value);
+		String text = String.format("<html><i>%s</i>: %s", property, value);
 		JLabel propertyLabel = new JLabel(text);
 		jreInfoPanel.add(propertyLabel);
 		return propertyLabel;
+	}
+
+	private JLabel setUpLinkLabel (String property, String link) {
+		String linkTag = String.format("<font color=blue>%s</font>", link);
+		JLabel linkLabel = setUpJLabel(property, linkTag);
+
+		linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		linkLabel.addMouseListener(this);
+		return linkLabel;
 	}
 
 	@Override
