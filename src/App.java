@@ -5,7 +5,7 @@ public class App {
 		if (args.length == 0) {
 			new MainFrame(jreInfo);
 		} else {
-			String jreInfoDisplay = String.format(
+			String mainCLIContent = String.format(
 					"Version: %s\nVersion date: %s\nVendor: %s\nVendor website: %s\nDevice operating system: %s\nReport JRE bugs: %s",
 					jreInfo.version,
 					jreInfo.versionDate,
@@ -15,7 +15,7 @@ public class App {
 					jreInfo.bugReportLink);
 
 			System.out.println("----- ABOUT YOUR JRE -----");
-			System.out.println(jreInfoDisplay);
+			System.out.println(mainCLIContent);
 		}
 	}
 }
