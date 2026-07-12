@@ -118,6 +118,13 @@ public class MainFrame extends JFrame implements MouseListener {
 		return linkLabel;
 	}
 
+	private void showCannotOpenLinkMessage() {
+		JOptionPane.showMessageDialog(this,
+				"Your device refuses to open this link! :(",
+				"Unable to open!",
+				JOptionPane.ERROR_MESSAGE);
+	}
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == exitButton) {
@@ -131,14 +138,14 @@ public class MainFrame extends JFrame implements MouseListener {
 			try {
 				desktop.browse(vendorUri);
 			} catch (IOException e1) {
-				System.out.println("Unable to open vendor site");
+				showCannotOpenLinkMessage();
 			}
 		} else if (e.getSource() == reportBugsLabel) {
 			// Open bug report link
 			try {
 				desktop.browse(bugReportUri);
 			} catch (IOException e1) {
-				System.out.println("Unable to open bug report link");
+				showCannotOpenLinkMessage();
 			}
 		}
 	}
