@@ -42,6 +42,8 @@ public class MainFrame extends JFrame implements MouseListener {
 	Desktop desktop = Desktop.getDesktop();
 	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
+	boolean linksAreParsable = true;
+
 	public MainFrame(JREInfo jreInfo) {
 		// Prepare copying JRE info
 		textToCopy = String.format("Version: %s\nVersion date: %s\nVendor: %s\nDevice operating system: %s",
@@ -57,7 +59,7 @@ public class MainFrame extends JFrame implements MouseListener {
 			vendorUri = new URI(jreInfo.vendorSite);
 			bugReportUri = new URI(jreInfo.bugReportLink);
 		} catch (URISyntaxException e) {
-			e.printStackTrace();
+			linksAreParsable = false;
 		}
 
 		// JLabel title
@@ -113,12 +115,16 @@ public class MainFrame extends JFrame implements MouseListener {
 	}
 
 	private JLabel setUpLinkLabel(String property, String link) {
-		String linkTag = String.format("<u><font color=blue>%s</font></u>", link);
-		JLabel linkLabel = setUpJLabel(property, linkTag);
+		if (linksAreParsable) {
+			String linkTag = String.format("<u><font color=blue>%s</font></u>", link);
+			JLabel linkLabel = setUpJLabel(property, linkTag);
 
-		linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		linkLabel.addMouseListener(this);
-		return linkLabel;
+			linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			linkLabel.addMouseListener(this);
+			return linkLabel;
+		} else {
+			return setUpJLabel(property, link);
+		}
 	}
 
 	private void showCannotOpenLinkMessage() {
