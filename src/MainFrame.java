@@ -19,6 +19,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame implements MouseListener {
+	// GUI variables
+
 	JPanel buttonPanel,
 			jreInfoPanel;
 
@@ -28,14 +30,15 @@ public class MainFrame extends JFrame implements MouseListener {
 	JButton copyButton,
 			exitButton;
 
-	FlowLayout alignLeft = new FlowLayout(FlowLayout.LEFT);
-
 	String textToCopy;
 	StringSelection copySelection;
 
 	URI vendorUri,
 			bugReportUri;
 
+	// Non-GUI variables
+
+	FlowLayout alignLeft = new FlowLayout(FlowLayout.LEFT);
 	Desktop desktop = Desktop.getDesktop();
 	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
