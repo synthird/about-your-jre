@@ -92,7 +92,7 @@ public class MainFrame extends JFrame implements MouseListener {
 		this.add(buttonPanel, BorderLayout.SOUTH);
 
 		// Set up JFrame window
-		this.setSize(333, 290);
+		this.setSize(484, 225);
 		this.setTitle("About your JRE");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
