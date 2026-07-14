@@ -42,6 +42,7 @@ public class MainFrame extends JFrame implements MouseListener {
 	Desktop desktop = Desktop.getDesktop();
 	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
+	String windowTitle = "About your JRE";
 	boolean linksAreParsable = true;
 
 	public MainFrame(JREInfo jreInfo) {
@@ -64,7 +65,7 @@ public class MainFrame extends JFrame implements MouseListener {
 
 		// JLabel title
 		JPanel titlePanel = new JPanel(alignLeft);
-		JLabel titleLabel = new JLabel("About your JRE");
+		JLabel titleLabel = new JLabel(windowTitle);
 
 		titlePanel.add(titleLabel);
 		this.add(titlePanel, BorderLayout.NORTH);
@@ -93,7 +94,7 @@ public class MainFrame extends JFrame implements MouseListener {
 
 		// Set up JFrame window
 		this.setSize(484, 225);
-		this.setTitle("About your JRE");
+		this.setTitle(windowTitle);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
