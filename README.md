@@ -16,7 +16,7 @@ You can download the latest version in the [releases page](https://github.com/sy
     - [Oracle GraalVM](https://www.graalvm.org/downloads/)
     - [Oracle Java SE](https://www.oracle.com/java/technologies/downloads/)
     - [Red Hat's openJDK](https://developers.redhat.com/products/openjdk/download)
-    - [SapMachine](https://sap.github.io/SapMachine/)
+    - [SapMachine](https://sapmachine.io/)
 
 2. Once you installed a JDK, download the jar file called ```about-your-jre.jar```.
 
