@@ -139,7 +139,7 @@ public class GUI extends JFrame implements MouseListener {
 		} else if (e.getSource() == copyButton) {
 			// Copy JRE info
 			clipboard.setContents(copySelection, null);
-			JOptionPane.showMessageDialog(this, "Copied JRE info to clipboard");
+			JOptionPane.showMessageDialog(this, "Copied JRE info to clipboard!");
 		} else if (e.getSource() == vendorSiteLabel) {
 			// Open vendor website
 			try {
