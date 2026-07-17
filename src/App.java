@@ -3,7 +3,7 @@ public class App {
 		JREInfo jreInfo = new JREInfo();
 
 		if (args.length == 0) {
-			new MainFrame(jreInfo);
+			new GUI(jreInfo);
 		} else {
 			String mainCLIContent = String.format(
 					"Version: %s\nVersion date: %s\nVendor: %s\nVendor website: %s\nDevice operating system: %s\nReport JRE bugs: %s",

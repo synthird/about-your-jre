@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class MainFrame extends JFrame implements MouseListener {
+public class GUI extends JFrame implements MouseListener {
 	// GUI variables
 	JPanel buttonPanel,
 			jreInfoPanel;
@@ -43,7 +43,7 @@ public class MainFrame extends JFrame implements MouseListener {
 	String windowTitle = "About your JRE";
 	boolean linksAreParsable = true;
 
-	public MainFrame(JREInfo jreInfo) {
+	public GUI(JREInfo jreInfo) {
 		// Prepare copying JRE info
 		textToCopy = String.format("Version: %s\nVersion date: %s\nVendor: %s\nDevice operating system: %s",
 				jreInfo.version,
