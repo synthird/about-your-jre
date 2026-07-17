@@ -40,7 +40,6 @@ public class GUI extends JFrame implements MouseListener {
 	Desktop desktop = Desktop.getDesktop();
 	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
-	String windowTitle = "About your JRE";
 	boolean linksAreParsable = true;
 
 	public GUI(JREInfo jreInfo) {
@@ -63,7 +62,7 @@ public class GUI extends JFrame implements MouseListener {
 
 		// JLabel title
 		JPanel titlePanel = new JPanel(alignLeft);
-		JLabel titleLabel = new JLabel(windowTitle);
+		JLabel titleLabel = new JLabel(String.format("%s JRE", jreInfo.vendor));
 
 		titlePanel.add(titleLabel);
 		this.add(titlePanel, BorderLayout.NORTH);
@@ -92,7 +91,7 @@ public class GUI extends JFrame implements MouseListener {
 
 		// Set up JFrame window
 		this.pack();
-		this.setTitle(windowTitle);
+		this.setTitle("About your JRE");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
