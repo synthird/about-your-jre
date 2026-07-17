@@ -42,6 +42,9 @@ public class GUI extends JFrame implements MouseListener {
 
 	boolean linksAreParsable = true;
 
+	String blueLinkColour = "blue",
+			redLinkColour = "red";
+
 	public GUI(JREInfo jreInfo) {
 		// Prepare copying JRE info
 		textToCopy = String.format("Version: %s\nVersion date: %s\nVendor: %s\nDevice operating system: %s",
@@ -125,6 +128,20 @@ public class GUI extends JFrame implements MouseListener {
 		}
 	}
 
+	private void changeLinkColour(JLabel linkLabel, String originalColour, String newColour) {
+		String labelText = linkLabel.getText();
+		String redLink = labelText.replaceFirst(originalColour, newColour);
+		linkLabel.setText(redLink);
+	}
+
+	private void changeLinkColour(Object linkLabel, String orignalColour, String newColour) {
+		if (linkLabel == vendorSiteLabel) {
+			changeLinkColour(vendorSiteLabel, orignalColour, newColour);
+		} else if (linkLabel == reportBugsLabel) {
+			changeLinkColour(reportBugsLabel, orignalColour, newColour);
+		}
+	}
+
 	private void showCannotOpenLinkMessage() {
 		JOptionPane.showMessageDialog(this,
 				"Your device refuses to open this link! :(",
@@ -167,9 +184,11 @@ public class GUI extends JFrame implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		changeLinkColour(e.getSource(), blueLinkColour, redLinkColour);
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		changeLinkColour(e.getSource(), redLinkColour, blueLinkColour);
 	}
 }
