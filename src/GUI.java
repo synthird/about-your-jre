@@ -114,7 +114,7 @@ public class GUI extends JFrame implements MouseListener {
 
 	private JLabel setUpLinkLabel(String property, String link) {
 		if (linksAreParsable) {
-			String linkTag = String.format("<u><font color=blue>%s</font></u>", link);
+			String linkTag = String.format("<span color=blue><u>%s</u></span>", link);
 			JLabel linkLabel = setUpJLabel(property, linkTag);
 
 			linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
