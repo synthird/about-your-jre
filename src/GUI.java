@@ -91,7 +91,7 @@ public class GUI extends JFrame implements MouseListener {
 		this.add(buttonPanel, BorderLayout.SOUTH);
 
 		// Set up JFrame window
-		this.setSize(484, 225);
+		this.pack();
 		this.setTitle(windowTitle);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
