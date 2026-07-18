@@ -119,7 +119,7 @@ public class GUI extends JFrame implements MouseListener {
 
 	private JLabel setUpLinkLabel(String property, String link) {
 		if (linksAreParsable) {
-			String linkTag = String.format("<span color=blue><u>%s</u></span>", link);
+			String linkTag = String.format("<span style='text-decoration: underline' color=blue>%s</span>", link);
 			JLabel linkLabel = setUpJLabel(property, linkTag);
 
 			linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -143,6 +143,20 @@ public class GUI extends JFrame implements MouseListener {
 			changeLinkColour(vendorSiteLabel, orignalColour, newColour);
 		} else if (linkLabel == reportBugsLabel) {
 			changeLinkColour(reportBugsLabel, orignalColour, newColour);
+		}
+	}
+
+	private void changeLinkDecoration(JLabel linkLabel, String originalDecoration, String newDecoration) {
+		String labelText = linkLabel.getText();
+		String newText = labelText.replaceFirst(originalDecoration, newDecoration);
+		linkLabel.setText(newText);
+	}
+
+	private void changeLinkDecoration(Object linkLabel, String originalDecoration, String newDecoration) {
+		if (linkLabel == vendorSiteLabel) {
+			changeLinkDecoration(vendorSiteLabel, originalDecoration, newDecoration);
+		} else if (linkLabel == reportBugsLabel) {
+			changeLinkDecoration(reportBugsLabel, originalDecoration, newDecoration);
 		}
 	}
 
@@ -180,10 +194,12 @@ public class GUI extends JFrame implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		changeLinkDecoration(e.getSource(), "underline", "none");
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		changeLinkDecoration(e.getSource(), "none", "underline");
 	}
 
 	@Override
