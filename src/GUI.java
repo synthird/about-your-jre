@@ -44,8 +44,8 @@ public class GUI extends JFrame implements MouseListener {
 
 	String blueLinkColour = "blue",
 			redLinkColour = "red",
-			underlineDecoration = "underline",
-			noUnderlineDecoration = "none";
+			underlineLink = "underline",
+			noUnderlineLink = "none";
 
 	public GUI(JREInfo jreInfo) {
 		// Prepare copying JRE info
@@ -179,14 +179,14 @@ public class GUI extends JFrame implements MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (checkIfChoseLinkLabel(e)) {
-			changeLinkAppearance((JLabel) e.getSource(), underlineDecoration, noUnderlineDecoration);
+			changeLinkAppearance((JLabel) e.getSource(), underlineLink, noUnderlineLink);
 		}
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (checkIfChoseLinkLabel(e)) {
-			changeLinkAppearance((JLabel) e.getSource(), noUnderlineDecoration, underlineDecoration);
+			changeLinkAppearance((JLabel) e.getSource(), noUnderlineLink, underlineLink);
 		}
 	}
 
