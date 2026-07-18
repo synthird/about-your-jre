@@ -108,6 +108,8 @@ public class GUI extends JFrame implements MouseListener {
 		return button;
 	}
 
+	// JLabel setup methods
+
 	private JLabel setUpJLabel(String property, String value) {
 		String text = String.format("<html><i>%s:</i> %s</html>", property, value);
 		JLabel propertyLabel = new JLabel(text);
@@ -127,6 +129,8 @@ public class GUI extends JFrame implements MouseListener {
 			return setUpJLabel(property, link);
 		}
 	}
+
+	// Link methods
 
 	private void changeLinkColour(JLabel linkLabel, String originalColour, String newColour) {
 		String labelText = linkLabel.getText();
