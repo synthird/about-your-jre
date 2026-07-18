@@ -134,8 +134,8 @@ public class GUI extends JFrame implements MouseListener {
 
 	private void changeLinkColour(JLabel linkLabel, String originalColour, String newColour) {
 		String labelText = linkLabel.getText();
-		String redLink = labelText.replaceFirst(originalColour, newColour);
-		linkLabel.setText(redLink);
+		String newText = labelText.replaceFirst(originalColour, newColour);
+		linkLabel.setText(newText);
 	}
 
 	private void changeLinkColour(Object linkLabel, String orignalColour, String newColour) {
