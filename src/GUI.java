@@ -138,26 +138,10 @@ public class GUI extends JFrame implements MouseListener {
 		linkLabel.setText(newText);
 	}
 
-	private void changeLinkColour(Object linkLabel, String orignalColour, String newColour) {
-		if (linkLabel == vendorSiteLabel) {
-			changeLinkColour(vendorSiteLabel, orignalColour, newColour);
-		} else if (linkLabel == reportBugsLabel) {
-			changeLinkColour(reportBugsLabel, orignalColour, newColour);
-		}
-	}
-
 	private void changeLinkDecoration(JLabel linkLabel, String originalDecoration, String newDecoration) {
 		String labelText = linkLabel.getText();
 		String newText = labelText.replaceFirst(originalDecoration, newDecoration);
 		linkLabel.setText(newText);
-	}
-
-	private void changeLinkDecoration(Object linkLabel, String originalDecoration, String newDecoration) {
-		if (linkLabel == vendorSiteLabel) {
-			changeLinkDecoration(vendorSiteLabel, originalDecoration, newDecoration);
-		} else if (linkLabel == reportBugsLabel) {
-			changeLinkDecoration(reportBugsLabel, originalDecoration, newDecoration);
-		}
 	}
 
 	private void showCannotOpenLinkMessage() {
@@ -194,21 +178,29 @@ public class GUI extends JFrame implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		changeLinkDecoration(e.getSource(), "underline", "none");
+		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
+			changeLinkDecoration((JLabel) e.getSource(), "underline", "none");
+		}
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		changeLinkDecoration(e.getSource(), "none", "underline");
+		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
+			changeLinkDecoration((JLabel) e.getSource(), "none", "underline");
+		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		changeLinkColour(e.getSource(), blueLinkColour, redLinkColour);
+		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
+			changeLinkColour((JLabel) e.getSource(), blueLinkColour, redLinkColour);
+		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		changeLinkColour(e.getSource(), redLinkColour, blueLinkColour);
+		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
+			changeLinkColour((JLabel) e.getSource(), redLinkColour, blueLinkColour);
+		}
 	}
 }
