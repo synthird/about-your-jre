@@ -43,7 +43,9 @@ public class GUI extends JFrame implements MouseListener {
 	boolean linksAreParsable = true;
 
 	String blueLinkColour = "blue",
-			redLinkColour = "red";
+			redLinkColour = "red",
+			underlineDecoration = "underline",
+			noUnderlineDecoration = "none";
 
 	public GUI(JREInfo jreInfo) {
 		// Prepare copying JRE info
@@ -179,14 +181,14 @@ public class GUI extends JFrame implements MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
-			changeLinkDecoration((JLabel) e.getSource(), "underline", "none");
+			changeLinkDecoration((JLabel) e.getSource(), underlineDecoration, noUnderlineDecoration);
 		}
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
-			changeLinkDecoration((JLabel) e.getSource(), "none", "underline");
+			changeLinkDecoration((JLabel) e.getSource(), noUnderlineDecoration, underlineDecoration);
 		}
 	}
 
