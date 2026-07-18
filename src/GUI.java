@@ -147,6 +147,10 @@ public class GUI extends JFrame implements MouseListener {
 				JOptionPane.ERROR_MESSAGE);
 	}
 
+	private boolean checkIfChoseLinkLabel(MouseEvent e) {
+		return e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel;
+	}
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == exitButton) {
@@ -174,28 +178,28 @@ public class GUI extends JFrame implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
+		if (checkIfChoseLinkLabel(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), underlineDecoration, noUnderlineDecoration);
 		}
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
+		if (checkIfChoseLinkLabel(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), noUnderlineDecoration, underlineDecoration);
 		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
+		if (checkIfChoseLinkLabel(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), blueLinkColour, redLinkColour);
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel) {
+		if (checkIfChoseLinkLabel(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), redLinkColour, blueLinkColour);
 		}
 	}
