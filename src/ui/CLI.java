@@ -1,3 +1,7 @@
+package ui;
+
+import mainpackage.JREInfo;
+
 public class CLI {
 	public CLI(JREInfo jreInfo) {
 		String mainCLIContent = String.format(

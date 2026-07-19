@@ -1,3 +1,5 @@
+package ui;
+
 import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -17,6 +19,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import mainpackage.JREInfo;
 
 public class GUI extends JFrame implements MouseListener {
 	// GUI variables

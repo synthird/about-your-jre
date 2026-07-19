@@ -1,3 +1,5 @@
+package mainpackage;
+
 public class JREInfo {
 	public String version = System.getProperty("java.version"),
 			versionDate = System.getProperty("java.version.date"),

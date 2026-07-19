@@ -1,3 +1,8 @@
+package mainpackage;
+
+import ui.CLI;
+import ui.GUI;
+
 public class App {
 	public static void main(String[] args) {
 		JREInfo jreInfo = new JREInfo();
