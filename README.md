@@ -1,6 +1,6 @@
 # About your JRE
 
-Look at any info about the JRE you installed.
+Look at any info about the JRE (Java Runtime Environment) you installed.
 
 ## Installation
 
