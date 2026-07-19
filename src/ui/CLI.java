@@ -5,7 +5,16 @@ import mainpackage.JREInfo;
 public class CLI {
 	public CLI(JREInfo jreInfo) {
 		String mainCLIContent = String.format(
-				"Version: %s\nVersion date: %s\nVendor: %s\nVendor website: %s\nDevice operating system: %s\nReport JRE bugs: %s",
+				"""
+						----- %s JRE -----
+						Version: %s
+						Version date: %s
+						Vendor: %s
+						Vendor website: %s
+						Device operating system: %s
+						Report JRE bugs: %s
+						""",
+				jreInfo.vendor,
 				jreInfo.version,
 				jreInfo.versionDate,
 				jreInfo.vendor,
@@ -13,6 +22,6 @@ public class CLI {
 				jreInfo.deviceOS,
 				jreInfo.bugReportLink);
 
-		System.out.println(String.format("----- %s JRE -----\n%s", jreInfo.vendor, mainCLIContent));
+		System.out.println(mainCLIContent);
 	}
 }
