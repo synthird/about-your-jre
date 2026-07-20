@@ -53,7 +53,12 @@ public class GUI extends JFrame implements MouseListener {
 
 	public GUI(JREInfo jreInfo) {
 		// Prepare copying JRE info
-		textToCopy = String.format("Version: %s\nVersion date: %s\nVendor: %s\nDevice operating system: %s",
+		textToCopy = String.format("""
+				Version: %s
+				Version date: %s
+				Vendor: %s
+				Device operating system: %s
+				""",
 				jreInfo.version,
 				jreInfo.versionDate,
 				jreInfo.vendor,
