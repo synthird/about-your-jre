@@ -33,7 +33,7 @@ public class GUI extends JFrame implements MouseListener {
 	JButton copyButton,
 			exitButton;
 
-	StringSelection copySelection;
+	StringSelection textToCopy;
 
 	URI vendorUri,
 			bugReportUri;
@@ -52,7 +52,7 @@ public class GUI extends JFrame implements MouseListener {
 
 	public GUI(JREInfo jreInfo) {
 		// Prepare copying JRE info
-		copySelection = new StringSelection(String.format("""
+		textToCopy = new StringSelection(String.format("""
 				Version: %s
 				Version date: %s
 				Vendor: %s
@@ -163,7 +163,7 @@ public class GUI extends JFrame implements MouseListener {
 			System.exit(0);
 		} else if (e.getSource() == copyButton) {
 			// Copy JRE info
-			clipboard.setContents(copySelection, null);
+			clipboard.setContents(textToCopy, null);
 			JOptionPane.showMessageDialog(this, "Copied JRE info to clipboard!");
 		} else if (e.getSource() == vendorSiteLabel) {
 			// Open vendor website
