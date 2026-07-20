@@ -6,7 +6,7 @@ Look at any info about the JRE (Java Runtime Environment) you installed.
 
 You can download the latest version in the [releases page](https://github.com/synthird/about-your-jre/releases/latest).
 
-1. You need a JDK installed on your device to run the jar file. Here are a couple ones to choose:
+1. You need a JDK or JRE installed on your device to run the jar file. Here are a couple ones to choose:
     
     - [Amazon Correto](https://aws.amazon.com/corretto/)
     - [Azul Zulu](https://www.azul.com/downloads/?package=jdk#zulu)
