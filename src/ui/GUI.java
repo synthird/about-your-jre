@@ -52,7 +52,7 @@ public class GUI extends JFrame implements MouseListener {
 
 	public GUI(JREInfo jreInfo) {
 		// Prepare copying JRE info
-		String textToCopy = String.format("""
+		copySelection = new StringSelection(String.format("""
 				Version: %s
 				Version date: %s
 				Vendor: %s
@@ -61,9 +61,7 @@ public class GUI extends JFrame implements MouseListener {
 				jreInfo.version,
 				jreInfo.versionDate,
 				jreInfo.vendor,
-				jreInfo.deviceOS);
-
-		copySelection = new StringSelection(textToCopy);
+				jreInfo.deviceOS));
 
 		// Extract links
 		try {
