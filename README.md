@@ -18,7 +18,7 @@ You can download the latest version in the [releases page](https://github.com/sy
     - [Red Hat's openJDK](https://developers.redhat.com/products/openjdk/download)
     - [SapMachine](https://sapmachine.io/)
 
-2. Once you installed a JDK, download the jar file called ```about-your-jre.jar```.
+2. Once you installed a JDK or JRE, download the jar file called ```about-your-jre.jar```.
 
 ## Running the jar file
 
