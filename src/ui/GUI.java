@@ -33,8 +33,6 @@ public class GUI extends JFrame implements MouseListener {
 	JButton copyButton,
 			exitButton;
 
-	StringSelection textToCopy;
-
 	URI vendorUri,
 			bugReportUri;
 
@@ -49,6 +47,8 @@ public class GUI extends JFrame implements MouseListener {
 			redLinkColour = "red",
 			underlineLink = "underline",
 			noUnderlineLink = "none";
+
+	StringSelection textToCopy;
 
 	public GUI(JREInfo jreInfo) {
 		// Prepare copying JRE info
