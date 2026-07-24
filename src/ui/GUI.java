@@ -116,8 +116,7 @@ public class GUI extends JFrame implements MouseListener {
 	// JLabel setup methods
 
 	private JLabel setUpJLabel(String property, String value) {
-		String text = String.format("<html><i>%s:</i> %s</html>", property, value);
-		JLabel propertyLabel = new JLabel(text);
+		JLabel propertyLabel = new JLabel(String.format("<html><i>%s:</i> %s</html>", property, value));
 		jreInfoPanel.add(propertyLabel);
 		return propertyLabel;
 	}
