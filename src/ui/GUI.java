@@ -140,7 +140,7 @@ public class GUI extends JFrame implements MouseListener {
 		linkLabel.setText(linkLabel.getText().replaceFirst(originalValue, newValue));
 	}
 
-	private boolean checkIfChoseLinkLabel(MouseEvent e) {
+	private boolean linkLabelChosen(MouseEvent e) {
 		return e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel;
 	}
 
@@ -175,28 +175,28 @@ public class GUI extends JFrame implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (checkIfChoseLinkLabel(e)) {
+		if (linkLabelChosen(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), underlineLink, noUnderlineLink);
 		}
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (checkIfChoseLinkLabel(e)) {
+		if (linkLabelChosen(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), noUnderlineLink, underlineLink);
 		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (checkIfChoseLinkLabel(e)) {
+		if (linkLabelChosen(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), blueLinkColour, redLinkColour);
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (checkIfChoseLinkLabel(e)) {
+		if (linkLabelChosen(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), redLinkColour, blueLinkColour);
 		}
 	}
