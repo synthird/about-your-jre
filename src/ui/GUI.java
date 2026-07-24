@@ -139,9 +139,7 @@ public class GUI extends JFrame implements MouseListener {
 	// Link methods
 
 	private void changeLinkAppearance(JLabel linkLabel, String originalValue, String newValue) {
-		String labelText = linkLabel.getText();
-		String newText = labelText.replaceFirst(originalValue, newValue);
-		linkLabel.setText(newText);
+		linkLabel.setText(linkLabel.getText().replaceFirst(originalValue, newValue));
 	}
 
 	private void showCannotOpenLinkMessage() {
