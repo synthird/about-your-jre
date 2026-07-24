@@ -142,15 +142,20 @@ public class GUI extends JFrame implements MouseListener {
 		linkLabel.setText(linkLabel.getText().replaceFirst(originalValue, newValue));
 	}
 
-	private void showCannotOpenLinkMessage() {
-		JOptionPane.showMessageDialog(this,
-				"Your device refuses to open this link! :(",
-				"Unable to open link!",
-				JOptionPane.ERROR_MESSAGE);
-	}
-
 	private boolean checkIfChoseLinkLabel(MouseEvent e) {
 		return e.getSource() == vendorSiteLabel || e.getSource() == reportBugsLabel;
+	}
+
+	private void openLink(URI link) {
+		try {
+			desktop.browse(link);
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(
+					this,
+					"Your device refuses to open this link! :(",
+					"Unable to open link!",
+					JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	@Override
@@ -163,18 +168,10 @@ public class GUI extends JFrame implements MouseListener {
 			JOptionPane.showMessageDialog(this, "Copied JRE info to clipboard!");
 		} else if (e.getSource() == vendorSiteLabel) {
 			// Open vendor website
-			try {
-				desktop.browse(vendorUri);
-			} catch (IOException e1) {
-				showCannotOpenLinkMessage();
-			}
+			openLink(vendorUri);
 		} else if (e.getSource() == reportBugsLabel) {
 			// Open bug report link
-			try {
-				desktop.browse(bugReportUri);
-			} catch (IOException e1) {
-				showCannotOpenLinkMessage();
-			}
+			openLink(bugReportUri);
 		}
 	}
 
