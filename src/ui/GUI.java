@@ -81,11 +81,11 @@ public class GUI extends JFrame implements MouseListener {
 		jreInfoPanel = new JPanel(alignLeft);
 		jreInfoPanel.setLayout(new BoxLayout(jreInfoPanel, BoxLayout.Y_AXIS));
 
-		setUpJLabel("Version", jreInfo.version);
-		setUpJLabel("Version date", jreInfo.versionDate);
-		setUpJLabel("Vendor", jreInfo.vendor);
+		setUpLabel("Version", jreInfo.version);
+		setUpLabel("Version date", jreInfo.versionDate);
+		setUpLabel("Vendor", jreInfo.vendor);
 		vendorSiteLabel = setUpLinkLabel("Vendor website", jreInfo.vendorSite);
-		setUpJLabel("Device operating system", jreInfo.deviceOS);
+		setUpLabel("Device operating system", jreInfo.deviceOS);
 		reportBugsLabel = setUpLinkLabel("Report JRE bugs", jreInfo.bugReportLink);
 
 		alignMainContent.add(jreInfoPanel);
@@ -115,7 +115,7 @@ public class GUI extends JFrame implements MouseListener {
 
 	// JLabel setup methods
 
-	private JLabel setUpJLabel(String property, String value) {
+	private JLabel setUpLabel(String property, String value) {
 		JLabel propertyLabel = new JLabel(String.format("<html><i>%s:</i> %s</html>", property, value));
 		jreInfoPanel.add(propertyLabel);
 		return propertyLabel;
@@ -124,13 +124,13 @@ public class GUI extends JFrame implements MouseListener {
 	private JLabel setUpLinkLabel(String property, String link) {
 		if (linksAreParsable) {
 			String linkTag = String.format("<span style='text-decoration: underline' color=blue>%s</span>", link);
-			JLabel linkLabel = setUpJLabel(property, linkTag);
+			JLabel linkLabel = setUpLabel(property, linkTag);
 
 			linkLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			linkLabel.addMouseListener(this);
 			return linkLabel;
 		} else {
-			return setUpJLabel(property, link);
+			return setUpLabel(property, link);
 		}
 	}
 
