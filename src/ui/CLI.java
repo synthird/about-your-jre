@@ -12,8 +12,7 @@ public class CLI {
 						Vendor: %s
 						Vendor website: %s
 						Device operating system: %s
-						Report JRE bugs: %s
-						""",
+						Report JRE bugs: %s""",
 				jreInfo.vendor,
 				jreInfo.version,
 				jreInfo.versionDate,

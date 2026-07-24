@@ -56,8 +56,7 @@ public class GUI extends JFrame implements MouseListener {
 				Version: %s
 				Version date: %s
 				Vendor: %s
-				Device operating system: %s
-				""",
+				Device operating system: %s""",
 				jreInfo.version,
 				jreInfo.versionDate,
 				jreInfo.vendor,
