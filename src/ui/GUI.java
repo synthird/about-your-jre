@@ -72,7 +72,7 @@ public class GUI extends JFrame implements MouseListener {
 
 		// JLabel title
 		JPanel titlePanel = new JPanel(alignLeft);
-		titlePanel.add(new JLabel(String.format("%s JRE", jreInfo.vendor)));
+		titlePanel.add(new JLabel(String.format("About your %s JRE", jreInfo.vendor)));
 		this.add(titlePanel, BorderLayout.NORTH);
 
 		// Show JRE info
