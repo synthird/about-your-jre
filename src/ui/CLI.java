@@ -6,7 +6,7 @@ public class CLI {
 	public CLI(JREInfo jreInfo) {
 		String mainCLIContent = String.format(
 				"""
-						----- %s JRE -----
+						----- About your %s JRE -----
 						Version: %s
 						Version date: %s
 						Vendor: %s
