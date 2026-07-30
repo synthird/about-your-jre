@@ -7,6 +7,8 @@ import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -22,7 +24,7 @@ import javax.swing.JPanel;
 
 import mainpackage.JREInfo;
 
-public class GUI extends JFrame implements MouseListener {
+public class GUI extends JFrame implements MouseListener, ActionListener {
 	// GUI variables
 	JPanel buttonPanel,
 			jreInfoPanel;
@@ -107,7 +109,7 @@ public class GUI extends JFrame implements MouseListener {
 
 	private JButton setUpButton(String text) {
 		JButton button = new JButton(text);
-		button.addMouseListener(this);
+		button.addActionListener(this);
 		button.setFocusable(false);
 		buttonPanel.add(button);
 		return button;
@@ -158,17 +160,10 @@ public class GUI extends JFrame implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (e.getSource() == exitButton) {
-			System.exit(0);
-		} else if (e.getSource() == copyButton) {
-			// Copy JRE info
-			clipboard.setContents(textToCopy, null);
-			JOptionPane.showMessageDialog(this, "Copied JRE info to clipboard!");
-		} else if (e.getSource() == vendorSiteLabel) {
-			// Open vendor website
+		// Open links
+		if (e.getSource() == vendorSiteLabel) {
 			openLink(vendorUri);
 		} else if (e.getSource() == reportBugsLabel) {
-			// Open bug report link
 			openLink(bugReportUri);
 		}
 	}
@@ -198,6 +193,19 @@ public class GUI extends JFrame implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (linkLabelChosen(e)) {
 			changeLinkAppearance((JLabel) e.getSource(), redLinkColour, blueLinkColour);
+		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// Buttons
+		Object button = e.getSource();
+
+		if (button == copyButton) {
+			clipboard.setContents(textToCopy, null);
+			JOptionPane.showMessageDialog(this, "Copied JRE info to clipboard!");
+		} else if (button == exitButton) {
+			System.exit(0);
 		}
 	}
 }
