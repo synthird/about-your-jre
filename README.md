@@ -37,5 +37,4 @@ java -jar about-your-jre.jar any-text-you-enter-here
 ```
 
 ## License
-
-This repository contains the GPL version 3 license. You must give credit if you want to use its source code, and open source any changes you make under the same license.
+This repository contains the GPL version 3 license. You must give credit if you fork the repository or copy the source code. Even if you copy a small piece of the code. If you make any changes, you must open source them under the same license.
